@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app='rbac-demo'>
+
+<head>
+
+    <title>RBAC Demo</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-theme.min.css">
+    <!-- Twitter Boost CSS -->
+    <link rel="stylesheet" href="resources/css/rbac-demo.css"/>
+
+</head>
+
+<body ng-cloak class="ng-cloak" ng-controller='AppUserController'>
+
+<div class="center-block well main-section">
+
+    <div class="title-section">
+        <div class="inline">
+            <h4>
+                <span class="label label-primary">User</span> <span class="user-font">{{user.username}}</span></br>
+            </h4>
+            <h4>
+                <span class="label label-primary">Role</span> <span class="role-font">{{user.role}}</span>
+            </h4>
+        </div>
+        <span class="zero-right-padding">
+            <div class="btn btn-info pull-right" ng-click="logout()">Log out</div>
+        </span>
+    </div>
+
+    <div class="section main">
+        <div ng-view></div>
+    </div>
+
+</div>
+
+<!-------SCRIPTS-------->
+
+<!-- jQuery -->
+<script src="resources/js/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="resources/js/bootstrap/bootstrap.min.js"></script>
+
+<!-- Angular JS -->
+<script type="text/javascript" src="resources/js/angular/angular.js"></script>
+<script type="text/javascript" src="resources/js/angular/angular-route.js"></script>
+<script type="text/javascript" src="resources/js/angular/angular-sanitize.js"></script>
+<script type="text/javascript" src="resources/js/angular/angular-cookies.js"></script>
+
+<!-- Main Application JS -->
+<script src="resources/js/rbac-demo.app.js"></script>
+<!-- Controllers -->
+<script src="resources/js/controllers/appuser.controller.js"></script>
+<script src="resources/js/controllers/admin.controller.js"></script>
+<script src="resources/js/controllers/user.controller.js"></script>
+<!-- Services -->
+<script src="resources/js/services/appuser.service.js"></script>
+<script src="resources/js/services/admin.service.js"></script>
+<script src="resources/js/services/user.service.js"></script>
+<script src="resources/js/services/role.service.js"></script>
+<!-- Other -->
+<script src="resources/js/config.js"></script>
+
+</body>
+
+</html>

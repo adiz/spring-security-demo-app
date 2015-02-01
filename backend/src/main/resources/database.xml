@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="1" author="adrian.zamfirescu">
+
+        <createTable tableName="APPUSER">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="USERNAME" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PASSWORD" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="ROLE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INFO" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_FOR_SCAM" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="2" author="adrian.zamfirescu">
+
+        <insert tableName="ROLE">
+            <column name="NAME">Admin</column>
+            <column name="INFO">Irrelevant</column>
+            <column name="MESSAGE_FOR_SCAM">Untouchable</column>
+        </insert>
+        <insert tableName="ROLE">
+            <column name="NAME">Peacemaker</column>
+            <column name="INFO">
+                You bring peace to the world. Or at least you try to. While being a bit too naive, you still
+                think you can make haters stop hating or that there is a magic formula for bringing all religions
+                together. You're good intended though.
+            </column>
+            <column name="MESSAGE_FOR_SCAM">
+                That's an irony. Making peace how? Through cyber attacks?
+            </column>
+        </insert>
+        <insert tableName="ROLE">
+            <column name="NAME">Jumper</column>
+            <column name="INFO">
+                You have a very bizarre role. Still uncertain if you literally jump from one place to the another
+                or if you psychologically jump obstacles that you encounter. Either way, it sounds fun!
+            </column>
+            <column name="MESSAGE_FOR_SCAM">
+                The only thing you're trying to jump right now is this application's security. Bad news: you won't!
+            </column>
+        </insert>
+        <insert tableName="ROLE">
+            <column name="NAME">Learner</column>
+            <column name="INFO">
+                All your life you've been trying to learn. You consider existence too short for all that is to learn.
+                Meticulous and persistent, you try to deeply understand every aspect that surrounds you.
+                Right now you're wondering why this text that you read lies on a blue background. Wow, slow down!
+            </column>
+            <column name="MESSAGE_FOR_SCAM">
+                If you state that you're a learner, maybe you should learn good manners. And ethics.
+                This section is not for you. Have a nice day!
+            </column>
+        </insert>
+
+        <insert tableName="APPUSER">
+            <column name="USERNAME">admin</column>
+            <column name="PASSWORD">1234</column>
+            <column name="ROLE_ID">1</column>
+        </insert>
+        <insert tableName="APPUSER">
+            <column name="USERNAME">john</column>
+            <column name="PASSWORD">1234</column>
+            <column name="ROLE_ID">2</column>
+        </insert>
+        <insert tableName="APPUSER">
+            <column name="USERNAME">terry</column>
+            <column name="PASSWORD">1234</column>
+            <column name="ROLE_ID">3</column>
+        </insert>
+        <insert tableName="APPUSER">
+            <column name="USERNAME">mark</column>
+            <column name="PASSWORD">1234</column>
+            <column name="ROLE_ID">4</column>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

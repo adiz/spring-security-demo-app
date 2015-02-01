@@ -1,0 +1,53 @@
+<div>
+
+    <h3 class="custom-h3">List of users</h3>
+    <ul class="list-group">
+        <li class="list-group-item adm-width"
+            ng-repeat="user in users">
+                <span class="glyphicon glyphicon-user"></span> <strong>{{user.username}}</strong> - <span class="role-font">{{user.role.name}}</span>
+        </li>
+    </ul>
+
+    <div class="adm-width alert alert-danger alert-below" role="alert" ng-show="listError">
+        <strong>{{listError}}</strong>
+    </div>
+
+    <span class="btn btn-default" ng-click="manageUserFormView()">
+        <span class="glyphicon glyphicon-{{userIcon}}"></span> Add user
+    </span>
+    <span class="btn btn-default" ng-click="manageRoleFormView()">
+        <span class="glyphicon glyphicon-{{roleIcon}}"></span> Add role
+    </span>
+
+    <div ng-show="showUserForm">
+        <fieldset class="well margin-up">
+            <label>Username: </label><input class="adm-width form-control login-space-below" type="text" ng-model="addingUser.username">
+            <label>Password: </label><input class="adm-width form-control login-space-below" type="password" ng-model="addingUser.password">
+            <label>Role: </label>
+            <select class="adm-width form-control"
+                    ng-model="addingUser.role"
+                    ng-options="role.name for role in roles">
+            </select>
+            </br>
+            <button class="btn btn-primary" ng-click='registerUser()'>Submit</button>
+        </fieldset>
+    </div>
+
+    <div ng-show="showRoleForm">
+        <fieldset class="well margin-up">
+            <label>Role name: </label><input class="adm-width form-control login-space-below" type="text" ng-model="addingRole.name">
+            <label>Role info: </label><textarea class="adm-width form-control login-space-below" rows=5 ng-model="addingRole.info"></textarea>
+            <label>Role scam message: </label><textarea class="adm-width form-control login-space-below" rows=5 ng-model="addingRole.messageForScam"></textarea>
+            </br>
+            <button class="btn btn-primary" ng-click='registerRole()'>Submit</button>
+        </fieldset>
+    </div>
+
+    <div class="adm-width alert alert-danger alert-below" role="alert" ng-show="registerError">
+        <strong ng-bind-html="registerError"></strong>
+    </div>
+    <div class="adm-width alert alert-success alert-below" role="alert" ng-show="registerSuccess">
+        <strong>{{registerSuccess}}</strong>
+    </div>
+
+</div>

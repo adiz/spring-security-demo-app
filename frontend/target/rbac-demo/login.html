@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app='rbac-demo-login'>
+
+<head>
+
+    <title>RBAC Demo Login</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-theme.min.css">
+    <!-- Twitter Boost CSS -->
+    <link rel="stylesheet" href="resources/css/rbac-demo.css"/>
+
+</head>
+
+<body ng-cloak class="ng-cloak">
+
+<div class="center-block img-container">
+    <img src="resources/img/welcome-login.png">
+</div>
+
+<div class="center-block well login-box" ng-controller='LoginController'>
+
+    <div>
+
+        <fieldset>
+            <input class="form-control login-space-below" type="text" placeholder="Username..." ng-model="user.username">
+            <input class="form-control login-space-below" type="password" placeholder="Password..." ng-model="user.password">
+            <button class="btn btn-primary" ng-click='loginUser()'>Login</button>
+        </fieldset>
+
+        <div class="center-block alert alert-danger alert-below" role="alert" ng-show="loginError">
+            <strong>{{loginError}}</strong>
+        </div>
+
+    </div>
+
+</div>
+
+    <!-------SCRIPTS-------->
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="resources/js/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="resources/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Angular JS -->
+    <script type="text/javascript" src="resources/js/angular/angular.js"></script>
+    <script type="text/javascript" src="resources/js/angular/angular-cookies.js"></script>
+
+    <!-- Main Application JS -->
+    <script type="text/javascript" src="resources/js/rbac-demo-login.app.js"></script>
+    <!-- Controllers -->
+    <script type="text/javascript" src="resources/js/controllers/login.controller.js"></script>
+    <!-- Services -->
+    <script type="text/javascript" src="resources/js/services/login.service.js"></script>
+    <!-- Other -->
+    <script type="text/javascript" src="resources/js/config.js"></script>
+
+</body>
+
+</html>

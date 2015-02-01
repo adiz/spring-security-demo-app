@@ -1,0 +1,1 @@
+var ROOT_CONTEXT = '/rbac-demo';

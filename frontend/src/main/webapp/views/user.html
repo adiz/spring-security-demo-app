@@ -1,0 +1,33 @@
+<h3 class="custom-h3">Application roles:</h3>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default" ng-repeat="role in roles">
+    <div class="panel-heading" role="tab" id="heading-{{role.name}}">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{role.name}}" target="_self" aria-expanded="false" aria-controls="collapse-{{role.name}}">
+          <strong>{{role.name}}</strong>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse-{{role.name}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{role.name}}">
+      <div class="panel-body">
+
+          <div ng-hide="(user.role!='Admin' && role.name!=user.role) || submitted[role.name]">
+              <strong>Press the button below to find out about your role in society.</strong><br/>
+              <button class="btn btn-success enlighten" ng-click="getRoleInfo(role.name)">Enlighten me</button>
+          </div>
+          <div class="adm-width alert alert-warning alert-below" role="alert" ng-show="user.role!='Admin' && role.name!=user.role">
+              <strong>You are not authorized to see this section.</strong>
+          </div>
+
+          <div class="adm-width alert alert-danger alert-below" role="alert" ng-show="hackedRole[role.name]">
+              <strong ng-bind-html="retrievedRole[role.name].messageForScam"></strong>
+          </div>
+          <div class="adm-width alert alert-info alert-below" role="alert" ng-show="validRole[role.name]">
+              <strong>{{retrievedRole[role.name].info}}</strong>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
